@@ -7,8 +7,8 @@ const BoxImage: React.FC<any> = () => {
       <img
         src="https://login.umcs.pl/images/logo-eba5ed0afdc6c6e78149cb578c12ec68.png"
         alt="UMCS"
-        height="315"
-        width="900"
+        height="105"
+        width="300"
         className="mx-auto cursor-pointer"
       />
     </Link>

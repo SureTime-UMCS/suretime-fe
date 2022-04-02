@@ -10,7 +10,7 @@ const CustomPage: React.FC<any> = ({ title, box }: any): JSX.Element | null => {
   });
 
   return (
-    <div className="text-3xl font-bold underline">
+    <div className="flex flex-col w-[100vw] h-[100vh] overflow-y-auto">
       <Header />
       <Main box={box} />
       <Footer />
