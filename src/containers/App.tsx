@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<CustomPage title={"SureTime - Witamy!"} box={BoxImage} />}
+          element={<CustomPage title={"Witamy!"} box={BoxImage} />}
         />
         <Route
           path="/login"

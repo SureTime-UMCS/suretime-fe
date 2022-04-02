@@ -5,6 +5,10 @@ import Main from "./elements/Main";
 import Footer from "./elements/Footer";
 
 const CustomPage: React.FC<any> = ({ title, box }: any): JSX.Element | null => {
+  React.useEffect(() => {
+    document.title = `${title} - SureTime`;
+  });
+
   return (
     <div className="text-3xl font-bold underline">
       <Header />
