@@ -1,12 +1,32 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 
-const BoxRegister: React.FC<any> = (): JSX.Element | null => {
+const BoxRegister: React.FC<any> = (): JSX.Element | any => {
   const [password, setPassword] = useState("");
   const [password1, setPassword1] = useState("");
 
   const handleFormSubmit = (e: any) => {
-    console.log(e.target.elements.email.value);
+    e.preventDefault();
+
+    const username = e.target.elements.username?.value;
+    const pass = e.target.elements.password?.value;
+    const email = e.target.elements.email?.value;
+
+    if (username && password) {
+      axios
+        .post("/api/auth/signup", {
+          username,
+          password: pass,
+          email,
+        })
+        .then(() => {
+          console.log("jea");
+        })
+        .catch(() => {
+          console.log("niema");
+        });
+    }
   };
 
   return (
@@ -40,6 +60,7 @@ const BoxRegister: React.FC<any> = (): JSX.Element | null => {
               <input
                 type="text"
                 placeholder="Name"
+                id="username"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -50,6 +71,7 @@ const BoxRegister: React.FC<any> = (): JSX.Element | null => {
               <input
                 type="text"
                 placeholder="Email"
+                id="email"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -58,6 +80,7 @@ const BoxRegister: React.FC<any> = (): JSX.Element | null => {
               <input
                 type="password"
                 placeholder="Password"
+                id="password"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 onChange={(e) => setPassword(e?.target?.value)}
               />

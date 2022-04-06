@@ -6,15 +6,22 @@ const BoxLogin: React.FC<any> = (): JSX.Element | null => {
   const [email, setEmail] = useState("");
 
   const handleFormSubmit = (e: any) => {
-    const emial = e.target.elements.email?.value;
+    e.preventDefault();
+    const username = e.target.elements.email?.value;
     const password = e.target.elements.password?.value;
 
-    if(email && password){
-      axios.post("api/login", {login:email, password}).then(()=>{
-        console.log("jea")
-      }).catch(()=>{
-        console.log("niema")
-      })
+    if (username && password) {
+      axios
+        .post("/api/auth/signin", {
+          username,
+          password,
+        })
+        .then(() => {
+          console.log("jea");
+        })
+        .catch(() => {
+          console.log("niema");
+        });
     }
   };
 
@@ -53,7 +60,7 @@ const BoxLogin: React.FC<any> = (): JSX.Element | null => {
                 placeholder="Email"
                 id="email"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                onChange={(e)=>setEmail(e?.target?.value)}
+                onChange={(e) => setEmail(e?.target?.value)}
               />
               {email === "" && (
                 <span className="text-xs tracking-wide text-red-600">
