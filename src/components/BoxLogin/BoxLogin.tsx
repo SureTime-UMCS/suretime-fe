@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { setAccessToken } from "../../utils/cookies";
 
 const BoxLogin: React.FC<any> = (): JSX.Element | null => {
   const [email, setEmail] = useState("");
@@ -16,8 +17,9 @@ const BoxLogin: React.FC<any> = (): JSX.Element | null => {
           username,
           password,
         })
-        .then(() => {
-          console.log("jea");
+        .then((res) => {
+          console.log(res);
+          setAccessToken(res.data.token)
         })
         .catch(() => {
           console.log("niema");
