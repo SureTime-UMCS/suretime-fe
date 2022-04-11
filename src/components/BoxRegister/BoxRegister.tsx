@@ -1,24 +1,23 @@
 import axios from "axios";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const BoxRegister: React.FC<any> = (): JSX.Element | any => {
   const [password, setPassword] = useState("");
-  const [password1, setPassword1] = useState("");
+  const [repeatPassword, setrepeatPassword] = useState("");
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
 
-    const username = e.target.elements.username?.value;
-    const pass = e.target.elements.password?.value;
-    const email = e.target.elements.email?.value;
+    const usernameValue = e.target.elements.username?.value;
+    const passwordValue = e.target.elements.password?.value;
+    const emailValue = e.target.elements.email?.value;
 
-    if (username && password) {
+    if (usernameValue && passwordValue) {
       axios
         .post("/api/auth/signup", {
-          username,
-          password: pass,
-          email,
+          username: usernameValue,
+          password: passwordValue,
+          email: emailValue,
         })
         .then(() => {
           console.log("jea");
@@ -91,10 +90,10 @@ const BoxRegister: React.FC<any> = (): JSX.Element | any => {
                 type="password"
                 placeholder="Password"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                onChange={(e) => setPassword1(e?.target?.value)}
+                onChange={(e) => setrepeatPassword(e?.target?.value)}
               />
             </div>
-            {password !== password1 && (
+            {password !== repeatPassword && (
               <span className="text-xs text-red-400">
                 Password must be same!
               </span>

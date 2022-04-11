@@ -1,6 +1,5 @@
 import axios from "axios";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { setAccessToken } from "../../utils/cookies";
 
 const BoxLogin: React.FC<any> = (): JSX.Element | null => {
@@ -8,18 +7,19 @@ const BoxLogin: React.FC<any> = (): JSX.Element | null => {
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-    const username = e.target.elements.email?.value;
-    const password = e.target.elements.password?.value;
 
-    if (username && password) {
+    const usernameValue = e.target.elements.email?.value;
+    const passwordValue = e.target.elements.password?.value;
+
+    if (usernameValue && passwordValue) {
       axios
         .post("/api/auth/signin", {
-          username,
-          password,
+          username: usernameValue,
+          password: passwordValue,
         })
         .then((res) => {
           console.log(res);
-          setAccessToken(res.data.token)
+          setAccessToken(res.data.token);
         })
         .catch(() => {
           console.log("niema");
