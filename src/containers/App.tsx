@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import BoxImage from "../components/BoxImage/BoxImage";
 import BoxLogin from "../components/BoxLogin/BoxLogin";
 import BoxRegister from "../components/BoxRegister/BoxRegister";
 import CustomPage from "./pages/CustomPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<CustomPage title={"Witamy!"} box={BoxImage} />}
+          element={<CustomPage title={"Witamy!"} box={MainPage} />}
         />
         <Route
           path="/login"
