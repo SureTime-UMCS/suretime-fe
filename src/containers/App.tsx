@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import BoxLogin from "../components/BoxLogin/BoxLogin";
+import BoxProfile from "../components/BoxProfile/BoxProfile";
 import BoxRegister from "../components/BoxRegister/BoxRegister";
 import CustomPage from "./pages/CustomPage";
 import MainPage from "./pages/MainPage";
@@ -13,6 +14,10 @@ function App() {
         <Route
           path="/"
           element={<CustomPage title={"Witamy!"} box={MainPage} />}
+        />
+        <Route
+          path="/profile/:player"
+          element={<CustomPage title={"Zawodnik"} box={BoxProfile} />}
         />
         <Route
           path="/login"
