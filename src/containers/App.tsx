@@ -13,11 +13,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<CustomPage title={"Witamy!"} box={MainPage} />}
+          element={<CustomPage title={"Strona główna"} box={MainPage} />}
         />
         <Route
           path="/profile/:player"
-          element={<CustomPage title={"Zawodnik"} box={BoxProfile} />}
+          element={<CustomPage title={"Profil zawodnika"} box={BoxProfile} />}
         />
         <Route
           path="/login"
