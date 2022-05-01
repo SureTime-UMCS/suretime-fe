@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const BoxPlayersList: React.FC<any> = () => {
   const [players, setPlayers] = React.useState([]);
@@ -7,7 +8,7 @@ const BoxPlayersList: React.FC<any> = () => {
   const mounted: any = React.useRef();
   React.useEffect(() => {
     if (!mounted.current) {
-      getOrders();
+      getPlayers();
       mounted.current = true;
     } else {
       // componentDidUpdate
@@ -16,7 +17,7 @@ const BoxPlayersList: React.FC<any> = () => {
 
   console.log(players);
 
-  const getOrders = () => {
+  const getPlayers = () => {
     axios
       .get("/api/v1/persons")
       .then((res) => setPlayers(res.data.content))
@@ -107,13 +108,12 @@ const BoxPlayersList: React.FC<any> = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          href={player?.links[0]?.href}
-                          className="text-indigo-600 hover:text-indigo-900"
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-blue-500 font-medium">
+                        <Link
+                          to={`/profile/${encodeURIComponent(player?.email)}`}
                         >
                           Zobacz profil
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   ))}

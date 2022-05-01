@@ -4,7 +4,11 @@ import BoxPlayersList from "../../components/BoxPlayersList/BoxPlayersList";
 
 const MainPage: React.FC<any> = ({ title, box }: any): JSX.Element | null => {
   React.useEffect(() => {
-    document.title = `${title} - SureTime`;
+    if (title) {
+      document.title = `${title} - SureTime`;
+    } else {
+      document.title = `Witamy! - SureTime`;
+    }
   });
 
   return (
