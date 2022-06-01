@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { getCookies } from "./utils/cookies";
 
-export default () => {
+const a = () => {
   axios.interceptors.response.use(
     (response) => {
       // if (!getCookies().get("access") && getCookies().get("refresh")) { jak bedzie refresh token
@@ -22,9 +22,10 @@ export default () => {
     },
     (err) => {
       const status = err.response?.status || 500;
+      console.log(err);
       switch (status) {
         case 401: {
-          if (window.location.pathname !== "/login"){
+          if (window.location.pathname !== "/login") {
             window.location.replace("/login");
           }
           return Promise.reject(err);
@@ -35,7 +36,9 @@ export default () => {
 
   axios.interceptors.request.use(
     function (config) {
-      config.headers.Authorization = `Bearer ${getCookies().get("accessToken")}`;
+      config.headers.Authorization = `Bearer ${getCookies().get(
+        "accessToken"
+      )}`;
       return config;
     },
     function (error) {
@@ -43,3 +46,5 @@ export default () => {
     }
   );
 };
+
+export default a;

@@ -2,7 +2,7 @@
   "name": "suretime-fe",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8989",
   "engines": {
     "node": "16.14.2",
     "yarn": "1.22.18"

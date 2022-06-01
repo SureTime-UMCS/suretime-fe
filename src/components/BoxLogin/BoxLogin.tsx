@@ -13,7 +13,7 @@ const BoxLogin: React.FC<any> = (): JSX.Element | null => {
 
     if (usernameValue && passwordValue) {
       axios
-        .post("/api/auth/signin", {
+        .post("/api/auth/login", {
           username: usernameValue,
           password: passwordValue,
         })

@@ -64,7 +64,7 @@ const BoxPlayersList: React.FC<any> = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {players.map((player: any) => (
-                    <tr key={player.email}>
+                    <tr key={player.userUUID}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
@@ -110,7 +110,7 @@ const BoxPlayersList: React.FC<any> = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-blue-500 font-medium">
                         <Link
-                          to={`/profile/${encodeURIComponent(player?.email)}`}
+                          to={`/profile/${encodeURIComponent(player?.userUUID)}`}
                         >
                           Zobacz profil
                         </Link>

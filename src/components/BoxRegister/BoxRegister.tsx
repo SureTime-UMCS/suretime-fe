@@ -14,7 +14,7 @@ const BoxRegister: React.FC<any> = (): JSX.Element | any => {
 
     if (usernameValue && passwordValue) {
       axios
-        .post("/api/auth/signup", {
+        .post("/api/auth/register", {
           username: usernameValue,
           password: passwordValue,
           email: emailValue,
